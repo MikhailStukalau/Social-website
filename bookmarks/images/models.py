@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
-from django.urls import reverse
+from django.urls import reverse, NoReverseMatch
 
 
 class Image(models.Model):
@@ -34,4 +34,5 @@ class Image(models.Model):
 
     def get_absolute_url(self):
         return reverse('images:detail', args=[self.id, self.slug])
+
 
